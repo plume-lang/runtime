@@ -1,0 +1,40 @@
+if is_plat("windows") then
+  set_toolchains("clang-cl")
+else 
+  set_toolchains("clang")
+end
+
+add_requires("bdwgc")
+set_warnings("allextra")
+
+target("plume")
+  add_rules("mode.release")
+  add_packages("bdwgc")
+  add_files("src/**.c")
+  add_includedirs("include")
+  set_kind("binary") 
+  set_targetdir("bin")
+  set_optimize("fastest")
+
+target("plume-test")
+  add_rules("mode.debug", "mode.profile")
+  add_packages("bdwgc")
+  add_files("src/**.c")
+  add_includedirs("include")
+  set_targetdir("bin")
+  set_kind("binary")
+  set_symbols("debug")
+  add_cxflags("-pg")
+  add_ldflags("-pg")
+  -- set_optimize("fastest")
+
+target("plume-library")
+  add_rules("mode.release")
+  add_packages("bdwgc")
+  add_files("src/**.c")
+  add_includedirs("include")
+  set_kind("static")
+  set_targetdir("lib")
+  set_optimize("fastest")
+  set_symbols("none")
+  add_cxflags("-fPIC")
