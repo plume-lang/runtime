@@ -1,0 +1,43 @@
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+
+flamegraph.svg
+*.plm
+
+bin
+.vscode
+
+*.dylib
+*.so
+*.dll
+
+_*
+
+# VS Code
+/.vscode/
+
+# Compile Commands
+/.cache/
+/compile_commands.json
+
+# Compile Flags
+/compile_flags.txt
+
+# CMake
+/CMakeLists.txt
+/cmake-build-debug/
+/cmake-build-release/
+
+# JetBrains IDEs
+/.idea/
+
+# Visual Studio / Rider
+/vsxmake*/
+/.vs/
+/*/.vs/
+
+lib
